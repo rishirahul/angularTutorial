@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-ioproperty',
@@ -7,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class IopropertyComponent implements OnInit {
   @Input('input-property') currentState: string;
+  @Output('output-property') buttonClicked = new EventEmitter;
   currentBtnState = '';
   constructor() { }
 
@@ -15,10 +17,15 @@ export class IopropertyComponent implements OnInit {
   }
 
   toggleState() {
+    this.buttonClicked.emit({buttonString : this.currentBtnState});
     if (this.currentBtnState === 'even clicks') {
       this.currentBtnState = 'odd clicks';
     } else {
       this.currentBtnState = 'even clicks';
     }
   }
+}
+
+export interface IoOutputEventArgs {
+  buttonString: string;
 }

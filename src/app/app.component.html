@@ -30,5 +30,5 @@
 </div>
 
 
-<app-ioproperty [input-property]="currentStateapp"></app-ioproperty>
+<app-ioproperty [input-property]="currentStateapp" (output-property)="iocompBtnClicked($event)"></app-ioproperty>
 <router-outlet></router-outlet>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IoOutputEventArgs } from './ioproperty/ioproperty.component'
 
 @Component({
   selector: 'app-root',
@@ -26,6 +27,9 @@ export class AppComponent {
   }
   onKeyUppp() {
     console.log('two way data binding', this.twoWayBinding);
+  }
+  iocompBtnClicked(eventargs: IoOutputEventArgs) {
+    console.log(' io component btn clicked', eventargs);
   }
 
 }
