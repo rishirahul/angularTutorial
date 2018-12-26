@@ -31,4 +31,11 @@
 
 
 <app-ioproperty [input-property]="currentStateapp" (output-property)="iocompBtnClicked($event)"></app-ioproperty>
+
+<app-ngcontent> <div class="headingTemplate">
+  <h1>Dynamic heading populated on template using ngContent</h1>
+</div>
+<div class="bodyTemplate">
+  <p> Dynamic body populated on template using ngContent </p>
+</div></app-ngcontent>
 <router-outlet></router-outlet>
