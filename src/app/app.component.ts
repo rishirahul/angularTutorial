@@ -15,4 +15,7 @@ export class AppComponent {
   onSave($event) {
     console.log('hello', $event);
   }
+  onKeyUp() {
+    console.log('event filtering');
+  }
 }

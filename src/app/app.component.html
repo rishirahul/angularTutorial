@@ -19,6 +19,7 @@
   <button class="btn btn-primary" [class.active]="isActive"> class binding</button>
   <button class="btn btn-primary" [style.background-color]="bgColor"> style binding</button>
   <button (click)="onSave($event)"> event binding </button>
+  <input (keyup.enter)="onKeyUp()">
 </div>
 
 <router-outlet></router-outlet>
