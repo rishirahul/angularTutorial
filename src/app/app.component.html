@@ -22,5 +22,9 @@
   <input (keyup.enter)="onKeyUp()">
   <input #templateVar (keyup.enter)="onKeyUpp(templateVar.value)">
 </div>
+<div>
+  {{ twoWayBinding}}
+  <input [(ngModel)]="twoWayBinding" (keyup.enter)="onKeyUppp()">
+</div>
 
 <router-outlet></router-outlet>
