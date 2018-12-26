@@ -18,6 +18,7 @@
 <div>
   <button class="btn btn-primary" [class.active]="isActive"> class binding</button>
   <button class="btn btn-primary" [style.background-color]="bgColor"> style binding</button>
+  <button (click)="onSave()"> event binding </button>
 </div>
 
 <router-outlet></router-outlet>
