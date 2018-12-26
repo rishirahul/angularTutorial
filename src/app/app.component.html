@@ -5,7 +5,15 @@
   </p>
   <img width="300" alt="Angular Logo" src="{{ imageUrl }}">
   <img width="300" alt="Angular Logo" [src]="imageUrl">
-  <br>
+</div>
+<div>
+  <table>
+    <tr>
+      <td [attr.colspan]="cols">
+        hello
+      </td>
+    </tr>
+  </table>
 </div>
 
 <router-outlet></router-outlet>
