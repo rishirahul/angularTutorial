@@ -18,4 +18,7 @@ export class AppComponent {
   onKeyUp() {
     console.log('event filtering');
   }
+  onKeyUpp(templateVarr) {
+    console.log('template variable', templateVarr);
+  }
 }
