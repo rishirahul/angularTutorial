@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IopropertyComponent } from './ioproperty/ioproperty.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IopropertyComponent
   ],
   imports: [
     BrowserModule,
