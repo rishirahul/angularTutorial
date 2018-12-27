@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IopropertyComponent } from './ioproperty/ioproperty.component';
 import { NgcontentComponent } from './ngcontent/ngcontent.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IopropertyComponent,
-    NgcontentComponent
+    NgcontentComponent,
+    TemplateDrivenFormComponent
   ],
   imports: [
     BrowserModule,

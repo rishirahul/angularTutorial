@@ -1,0 +1,51 @@
+<form #f="ngForm">
+  <div class="form-group">
+    <div ngModelGroup="contact" #Contact="ngModelGroup">
+      <div *ngIf="Contact.touched && !Contact.valid" class="alert alert-danger"> invalid contact</div>
+      <label for="firstName">First Name</label>
+      <input required minlength="3" maxlength="15" pattern="" ngModel name="firstName" #first_Name="ngModel" id="firstName" type="text" class="form-control">
+      <div class="alert alert-danger" *ngIf="first_Name.touched && !first_Name.valid">
+        <div *ngIf="first_Name.errors.required"> first name is required </div>
+        <div *ngIf="first_Name.errors.minlength"> min length should be {{first_Name.errors.minlength.requiredLength}} </div>
+        <div *ngIf="first_Name.errors.maxlength"> min length should be {{first_Name.errors.maxlength.requiredLength}} </div>
+        <div *ngIf="first_Name.errors.pattern"> wrong pattern </div>
+      </div>
+
+      <label for="lastName">Last Name</label>
+      <input required minlength="3" maxlength="15" pattern="" ngModel name="lastName" #last_Name="ngModel" id="lastName" type="text" class="form-control">
+      <div class="alert alert-danger" *ngIf="last_Name.touched && !last_Name.valid">
+        <div *ngIf="last_Name.errors.required"> first name is required </div>
+        <div *ngIf="last_Name.errors.minlength"> min length should be {{last_Name.errors.minlength.requiredLength}} </div>
+        <div *ngIf="last_Name.errors.maxlength"> min length should be {{last_Name.errors.maxlength.requiredLength}} </div>
+        <div *ngIf="last_Name.errors.pattern"> wrong pattern </div>
+      </div>
+
+    </div>
+
+
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control" [readonly]="!Contact.valid"></textarea>
+  </div>
+
+  <div class="checkbox">
+    <label for="">
+      <input type="checkbox" ngModel name="isSubscribed"> subscribe to mailing list
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label for="contactMethodDrop"> contact Method</label>
+    <select ngModel name="contactMethod_drop" id="contactMethodDrop" class="form-control" >
+        <option *ngFor="let method of contactMethods" [value]="method.id">{{ method.name }}</option>
+    </select>
+  </div>
+
+  <div *ngFor="let method of contactMethods" class="radio">
+    <label>
+      <input ngModel name="contactMethod" [value]="method.id" type="radio"> {{method.name}} </label>
+    </div>
+  {{f.value | json}}
+  <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+</form>
