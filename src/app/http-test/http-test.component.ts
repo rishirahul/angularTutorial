@@ -21,6 +21,14 @@ export class HttpTestComponent implements OnInit {
       post['id'] = response['id'];
       this.posts.splice(0, 0, post);
       console.log(response);
+    }, (error: Response) => {
+      if (error.status === 400) {
+        alert(' expected error, post already deleted');
+        //this.form.setErrors(error.json());
+      } else {
+        alert('unexpected error occured');
+      }
+      console.log(error);
     });
   }
 
@@ -28,6 +36,14 @@ export class HttpTestComponent implements OnInit {
     this.service.upadatePost(post)
     .subscribe(response => {
       console.log(response);
+    }, (error: Response) => {
+      if (error.status === 400) {
+        alert(' expected error, post already deleted');
+        //this.form.setErrors(error.json());
+      } else {
+        alert('unexpected error occured');
+      }
+      console.log(error);
     });
   }
 
@@ -37,6 +53,14 @@ export class HttpTestComponent implements OnInit {
       console.log(response);
       let index = this.posts.indexOf(post);
       this.posts.splice(index, 0);
+    }, (error: Response) => {
+      if (error.status === 400) {
+        alert(' expected error, post already deleted');
+        //this.form.setErrors(error.json());
+      } else {
+        alert('unexpected error occured');
+      }
+      console.log(error);
     });
   }
 
@@ -44,6 +68,14 @@ export class HttpTestComponent implements OnInit {
     this.service.getPosts()
     .subscribe(response => {
       this.posts = response;
+    }, (error: Response) => {
+      if (error.status === 400) {
+        alert(' expected error, post already deleted');
+        //this.form.setErrors(error.json());
+      } else {
+        alert('unexpected error occured');
+      }
+      console.log(error);
     });
   }
 
