@@ -34,6 +34,15 @@ export class HttpTestComponent implements OnInit {
     });
   }
 
+  DeletePost (post) {
+    this.http.delete(this.url + '/' + post.id)
+    .subscribe(response => {
+      console.log(response);
+      let index = this.posts.indexOf(post);
+      this.posts.splice(index, 0);
+    });
+  }
+
   ngOnInit() {
   }
 
