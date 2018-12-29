@@ -27,6 +27,13 @@ export class HttpTestComponent implements OnInit {
     });
   }
 
+  updatePost (post) {
+    this.http.put(this.url + '/' + post.id, JSON.stringify(post))
+    .subscribe(response => {
+      console.log(response);
+    });
+  }
+
   ngOnInit() {
   }
 
