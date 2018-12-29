@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-http-test',
@@ -8,14 +9,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpTestComponent implements OnInit {
   posts: any;
-  private url = 'https://jsonplaceholder.typicode.com/posts';
-  constructor(private http: HttpClient) {
+
+  constructor(private service: PostService) {
   }
 
   createPost(input: HTMLInputElement) {
     let post = {title: input.value};
     input.value = '';
-    this.http.post(this.url, JSON.stringify(post))
+    this.service.createPost(post)
     .subscribe(response => {
       post['id'] = response['id'];
       this.posts.splice(0, 0, post);
@@ -24,14 +25,14 @@ export class HttpTestComponent implements OnInit {
   }
 
   updatePost (post) {
-    this.http.put(this.url + '/' + post.id, JSON.stringify(post))
+    this.service.upadatePost(post)
     .subscribe(response => {
       console.log(response);
     });
   }
 
   DeletePost (post) {
-    this.http.delete(this.url + '/' + post.id)
+    this.service.deletePost(post)
     .subscribe(response => {
       console.log(response);
       let index = this.posts.indexOf(post);
@@ -40,7 +41,7 @@ export class HttpTestComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get(this.url)
+    this.service.getPosts()
     .subscribe(response => {
       this.posts = response;
     });

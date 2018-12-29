@@ -10,7 +10,7 @@ import { TemplateDrivenFormComponent } from './template-driven-form/template-dri
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpTestComponent } from './http-test/http-test.component';
-
+import { PostService } from './services/post.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,7 @@ import { HttpTestComponent } from './http-test/http-test.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
