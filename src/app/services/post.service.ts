@@ -27,11 +27,13 @@ export class PostService {
   }
 
   deletePost(post) {
-    return this.http.delete(this.url + '/' + post.id).pipe(catchError((error: Response) => {
-      if (error.status === 404) {
-        return throwError(new NotFoundError(error));
-      }
-      return throwError(new AppError(error));
-    }));
+    return this.http.delete(this.url + '/' + post.id).pipe(catchError(this.handleError));
+  }
+
+  private handleError(error: Response) {
+    if (error.status === 404) {
+      return throwError(new NotFoundError(error));
+    }
+    return throwError(new AppError(error));
   }
 }

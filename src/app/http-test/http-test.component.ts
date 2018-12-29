@@ -73,8 +73,6 @@ export class HttpTestComponent implements OnInit {
       if (error.status === 400) {
         alert(' expected error, post already deleted');
         //this.form.setErrors(error.json());
-      } else {
-        alert('unexpected error occured');
       }
       console.log(error);
     });
